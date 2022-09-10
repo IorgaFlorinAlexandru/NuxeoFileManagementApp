@@ -13,7 +13,9 @@ namespace NuxeoFileManagementApp.ViewModel
 
         public void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged == null) return;
+
+            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

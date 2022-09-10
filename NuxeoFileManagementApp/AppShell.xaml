@@ -5,16 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:NuxeoFileManagementApp"
     xmlns:views="clr-namespace:NuxeoFileManagementApp.View"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Default Page">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
+                          Route="MainPage"/>
+        </Tab>
+    </FlyoutItem>
 
-    <ShellContent 
-        Title="Folder"
-        ContentTemplate="{DataTemplate views:FilePage}"
-        Route="FolderPage" />
+    <FlyoutItem Title="Folders">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:FolderPage}" 
+                          Route="FolderPage"/>
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NuxeoFileManagementApp.ViewModel
 {
-    public class FilePageViewModel
+    public class FilePageViewModel : BaseViewModel
     {
     }
 }
