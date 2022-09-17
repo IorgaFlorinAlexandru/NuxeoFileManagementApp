@@ -53,6 +53,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="log4net" Version="2.0.15" />
 	  <PackageReference Include="NuxeoClient" Version="1.0.0-beta-72220" />
 	</ItemGroup>

@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:NuxeoClient.Wrappers;assembly=NuxeoClient"
+             xmlns:viewmodel="clr-namespace:NuxeoFileManagementApp.ViewModel"
              x:Class="NuxeoFileManagementApp.View.FolderPage"
-             Title="FolderPage">
+             x:DataType="viewmodel:FolderPageViewModel"
+             Title="{Binding FolderPath}">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <CollectionView>
-            
-        </CollectionView>
+        <RefreshView IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding DocumentChildren}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Document">
+                        <StackLayout>
+                            <Label Text="{Binding Title}"/>
+                            <Label Text="{Binding Type}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        <Button Text="Get documnets" Command="{Binding GetDocumentsCommand}"></Button>
     </VerticalStackLayout>
 </ContentPage>

@@ -1,13 +1,14 @@
 ﻿using NuxeoClient;
 using NuxeoClient.Wrappers;
 using NuxeoFileManagementApp.Interfaces;
+using System.Collections;
 using System.Net;
 
 namespace NuxeoFileManagementApp.Services
 {
     public class NuxeoService : INuxeoService
     {
-        private readonly Client client = new Client("http://10.2.58.31:8080/nuxeo/", new NuxeoClient.Authorization("Administrator", "Administrator"));
+        private readonly NuxeoClient.Client client = new NuxeoClient.Client("http://10.1.58.31:8080/nuxeo/", new NuxeoClient.Authorization("Administrator", "Administrator"));
 
         public async Task<Documents> GetDocuments(string path)
         {
